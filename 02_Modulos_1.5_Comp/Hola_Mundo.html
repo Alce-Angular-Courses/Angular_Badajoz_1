@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hola Mundo</title>
+        <meta name="description" content="Hola mundo con AngularJS">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="./app.js"></script>
+        <script src="./app-controller.js"></script>
+        <script src="./saludo-component.js"></script>
+    </head>
+    <body ng-app="appModule" ng-controller="AppController as vm">
+        <header>
+            <h1>Hola Mundo</h1>
+        </header>
+        <app-saludo></app-saludo>
+        <footer>
+            <p>Curso de {{vm.sCurso}}</p>    
+        </footer>      
+        
+    </body>
+</html>
