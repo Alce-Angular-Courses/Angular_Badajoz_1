@@ -7,8 +7,9 @@
         <meta name="description" content="Hola mundo con AngularJS">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="./app.js"></script>
     </head>
-    <body ng-app ng-init="sName='Pepe'; sCurso='AngularJS'">
+    <body ng-app="appModule" ng-controller="AppController">
         <header>
             <h1>Hola Mundo</h1>
         </header>
@@ -18,7 +19,7 @@
                 <input id="name" type="text" ng-model="sName">
             </p>
             <p>
-                <button ng-click="sName='';">Borrar</button>
+                <button ng-click="btnBorrar()">Borrar</button>
             </p>
             <p>
                 Hola {{sName}}
