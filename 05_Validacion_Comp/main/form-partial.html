@@ -1,0 +1,56 @@
+<form name="printerForm" novalidate ng-submit="$ctrl.enviarFormulario()">
+    <h2>Datos del usuario</h2>
+    <p>
+        <label for="firstname">Nombre</label>
+        <input type="text" id="firstname" name="firstname"
+                ng-model="$ctrl.user.firstname" 
+                ng-model-options="{updateOn: 'blur'}" 
+                ng-required="true" 
+                ng-minlength="5">
+    </p>
+    <p ng-show="printerForm.firstname.$dirty">
+        <span class="error-message" 
+            ng-show="printerForm.firstname.$error.required">
+            El nombre es obligatorio
+        </span>
+        <span class="error-message"
+            ng-show="printerForm.firstname.$error.minlength">
+            El nombre debe tener al menos 5 caracteres
+        </span>
+    </p>
+   
+    <h2>Seleción de opciones</h2>
+    <p>
+        <input id="print" type="checkbox" 
+            ng-model="$ctrl.print" 
+            ng-change="$ctrl.avisarPrint()">
+        <label for="print">Imprimir resultado</label><br>
+        
+        <input id="tono" type="checkbox" 
+            ng-model="$ctrl.isClaro" 
+            ng-true-value=("claro") ng-false-value=("oscuro")>
+        <label for="tono">Tono claro</label>			
+    </p>
+    <p>
+        <label for="select">Departamento</label>
+        <select id="select" ng-model="$ctrl.oDepartamentoSeleccionado" 
+                ng-options="departamento as departamento.nombre 
+                            for departamento in $ctrl.aDepartamentos 
+                            track by departamento.idDepartamento" >
+              <option value="">--Elige opcion--</option>
+        </select>
+    </p>		
+    <p>
+        <button type="submit" ng-disabled="!printerForm.$valid">Enviar</button>
+    </p>
+</form>
+
+<div ng-if="$ctrl.isSubmit">
+    <h2>Resultado</h2>
+    <ul>
+        <li>Opción print seleccionada: {{$ctrl.print}}</li>
+        <li>Opción claro seleccionada: {{$ctrl.isClaro}}</li>
+        <li>Nombre del Departamento elegido: {{$ctrl.oDepartamentoSeleccionado.nombre}}</li>
+        <li>Departamento elegido: {{$ctrl.oDepartamentoSeleccionado}}</li>
+    </ul>
+</div>

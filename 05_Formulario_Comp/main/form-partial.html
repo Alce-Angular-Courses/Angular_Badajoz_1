@@ -1,0 +1,31 @@
+<form>
+    <h2>Seleción de opciones</h2>
+    <p>
+        <input id="print" type="checkbox" 
+            ng-model="$ctrl.print" 
+            ng-change="$ctrl.avisarPrint()">
+        <label for="print">Imprimir resultado</label><br>
+        
+        <input id="tono" type="checkbox" 
+            ng-model="$ctrl.isClaro" 
+            ng-true-value=("claro") ng-false-value=("oscuro")>
+        <label for="tono">Tono claro</label>			
+    </p>
+    <p>
+        <label for="select">Departamento</label>
+        <select id="select" ng-model="$ctrl.oDepartamentoSeleccionado" 
+                ng-options="departamento as departamento.nombre 
+                            for departamento in $ctrl.aDepartamentos 
+                            track by departamento.idDepartamento" >
+              <option value="">--Elige opcion--</option>
+        </select>
+    </p>		
+    <h2>Resultado</h2>
+    <ul>
+        <li>Opción print seleccionada: {{$ctrl.print}}</li>
+        <li>Opción claro seleccionada: {{$ctrl.isClaro}}</li>
+        <li>Nombre del Departamento elegido: {{$ctrl.oDepartamentoSeleccionado.nombre}}</li>
+        <li>Departamento elegido: {{$ctrl.oDepartamentoSeleccionado}}</li>
+    </ul>
+</form>
+
