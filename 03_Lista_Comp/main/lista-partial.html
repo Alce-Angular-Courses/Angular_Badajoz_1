@@ -1,0 +1,18 @@
+<article>
+        <p>
+            <label for="idea">Dinos una idea</label>
+            <input id="idea" type="text" ng-model="$ctrl.sNuevaIdea">
+        </p>
+        <p>
+            <button ng-click="$ctrl.btnAdd()">Añadir</button>
+        </p>
+    
+        <div ng-if="$ctrl.aIdeas.length > 0">
+            <h2>Lista de Ideas</h2>
+            <ul>
+                <li ng-repeat="ideas in $ctrl.aIdeas track by $index">{{ideas}}</li>
+            </ul>
+        </div>
+    
+    
+    </article>
