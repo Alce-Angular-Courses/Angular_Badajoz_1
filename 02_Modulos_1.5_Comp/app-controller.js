@@ -3,5 +3,6 @@ class AppController {
      this.sCurso='AngularJS'; 
     }
 }
+
 angular.module("appModule")
 .controller("AppController", AppController);

@@ -3,6 +3,7 @@ class MainController {
      this.sCurso='AngularJS'; 
     }
 }
+
 angular.module("appModule")
 .component('appMain', {
     templateUrl: 'main-partial.html',
