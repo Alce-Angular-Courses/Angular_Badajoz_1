@@ -1,4 +1,10 @@
 class FormController {
+
+    constructor ($log) {
+      'ngInject';
+      this.$log = $log
+    }
+
     $onInit () {
 
         this.print = false;	//true si se selecciona imprimei	
@@ -20,8 +26,8 @@ class FormController {
       }
       
       avisarPrint () {
-          console.log("Modificada la opción de imprimir con valor :");
-          console.log(this);		
+          this.$log.info("Modificada la opción de imprimir con valor :");
+          this.$log.log(this);		
       }
 
       enviarFormulario() {
