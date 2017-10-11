@@ -1,0 +1,23 @@
+<form>
+    <div >
+            <label>Selecciona un continente:</label>
+
+            <select name="continentes" id="continentes" 
+                ng-model="$ctrl.selectContinent"
+                ng-options="continente as continente.name 
+                    for continente in $ctrl.aContinentes 
+                    track by continente.id" 
+                ng-change="$ctrl.buscarPaises()">
+            </select>
+            
+    </div>
+</form>	
+
+<article ng-if="$ctrl.aPaises.length > 0">
+    <h2>Paises de {{$ctrl.selectContinent.name}}</h2>
+    <ul>
+        <li ng-repeat="pais in $ctrl.aPaises">
+            País: <span>{{pais.name}}</span>, capital: {{pais.capital}}
+        </li>
+    </ul>
+</article>
